@@ -1,9 +1,10 @@
+import "./Product.css"
 
-function Product({rating}) {
+function Product({title,rating, image}) {
     return (
         <div className="product">
             <div className="product__info">
-                <p>Titulo</p>
+                <p>{title}</p>
                 <p className="product__price">
                     <small>$</small>
                     <strong>11.99</strong>
@@ -14,6 +15,7 @@ function Product({rating}) {
                     ))}
                 </div>
             </div>
+            <img src={image} alt="" />
             <button>Add to Basket</button>
         </div>
     )
