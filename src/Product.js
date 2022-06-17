@@ -2,7 +2,7 @@ import React from "react"
 import "./Product.css"
 import { useStateValue } from "./StateProvider";
 
-function Product({title,rating, image}) {
+function Product({title,rating, image, price}) {
     const [{basket}, dispatch] = useStateValue();
 
     console.log(basket);
@@ -13,7 +13,8 @@ function Product({title,rating, image}) {
             item: {
                 title: title,
                 rating: rating,
-                image: image
+                image: image,
+                price: price
             },
         });
     };
@@ -24,7 +25,7 @@ function Product({title,rating, image}) {
                 <p>{title}</p>
                 <p className="product__price">
                     <small>$</small>
-                    <strong>11.99</strong>
+                    <strong>{price}</strong>
                 </p>
                 <div className="product__rating">
                     {Array(rating).fill().map((_, i) => (
