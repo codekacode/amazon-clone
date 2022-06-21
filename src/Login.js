@@ -17,7 +17,7 @@ function Login() {
                     <input type="email" />
                     <h5>Password</h5>
                     <input type="password" />
-                    <button>Sign In</button>
+                    <button className="login__signInButton">Sign In</button>
                 </form>
                  <p>
                     By signing-in you agree to the AMAZON FAKE CLONE Conditions of Use & Sale. Please
