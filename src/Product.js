@@ -2,7 +2,7 @@ import React from "react"
 import "./Product.css"
 import { useStateValue } from "./StateProvider";
 
-function Product({title,rating, image, price}) {
+function Product({id, title,rating, image, price}) {
     const [{basket}, dispatch] = useStateValue();
 
     console.log(basket);
@@ -11,6 +11,7 @@ function Product({title,rating, image, price}) {
         dispatch({
             type: "ADD_TO_BASKET",
             item: {
+                id: id,
                 title: title,
                 rating: rating,
                 image: image,
