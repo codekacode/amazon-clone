@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { auth } from "./firebase";
 import "./Login.css"
 
 function Login() {
@@ -12,6 +13,12 @@ function Login() {
 
     const register = e => {
         e.preventDefault();
+        auth
+            .createUserWithEmailAndPassword(email, password)
+            .then((auth) => {
+                console.log(auth);
+            })
+            .catch((error) => alert(error.message))
     }
 
     return (
@@ -26,9 +33,9 @@ function Login() {
                 <h1>Sign In</h1>
                 <form>
                     <h5>E-mail</h5>
-                    <input type="email" onChange={email} value={e => setEmail(e.target.value)} />
+                    <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
                     <h5>Password</h5>
-                    <input type="password" onChange={password} value={e => setPassword(e.target.value)} />
+                    <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
                     <button onClick={signIn} className="login__signInButton">Sign In</button>
                 </form>
                  <p>
