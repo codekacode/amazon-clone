@@ -31,12 +31,14 @@ function Payment() {
                 method: "post",
                 url: `/payments/create?total=${getBasketTotal(basket) * 100}`
             });
-            setClientSecret(response.data.clientSecret)
+            setClientSecret(response.data.clientSecret);
         }
 
         getClientSecret();
     }, [basket])
 
+    console.log('The client secret is >> ',clientSecret)
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
         setProcessing(true);
