@@ -39,7 +39,7 @@ function Payment() {
     }, [basket])
 
     console.log('The client secret is >> ',clientSecret)
-    
+    console.log('The user is >> ',user)
     const handleSubmit = async (e) => {
         e.preventDefault();
         setProcessing(true);
@@ -53,7 +53,7 @@ function Payment() {
 
             db
                 .collection('users')
-                .doc(user?.id)
+                .doc(user?.uid)
                 .collection('orders')
                 .doc(paymentIntent.id)
                 .set({
