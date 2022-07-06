@@ -32,7 +32,7 @@ app.post("/payments/create", async (request, response) => {
 
 // listen command
 
-exports.api = functions.https.onRequest(app);
+exports.app = functions.https.onRequest(app);
 
 // exaple endpoint
 // http://127.0.0.1:5001/clone-24cfc/us-central1/api
